@@ -47,4 +47,3 @@ def retrdataframe():
 
     combined_df = pd.concat(dfs, axis=0).drop_duplicates(subset='Symbol').reset_index(drop=True)
 
-    return combined_df
