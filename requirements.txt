@@ -1,0 +1,4 @@
+praw~=7.1.0
+PyYAML~=5.4.1
+pandas~=1.2.1
+requests~=2.25.1

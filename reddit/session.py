@@ -1,5 +1,4 @@
 import praw
-import requests as r
 import yaml
 
 def getsession():
@@ -13,8 +12,6 @@ def getsession():
             user_agent = conf['reddit']['user_agent']
         except yaml.YAMLError as exc:
             print(exc)
-
-    session = r.Session()
 
     return praw.Reddit(client_id=client_id,
                        client_secret=client_secret,
