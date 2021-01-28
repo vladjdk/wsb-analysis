@@ -14,6 +14,22 @@ Here are the elements that are necessary for the analysis.
 - [ ] Determine metrics needed for impactful analysis
 - [ ] Predictor for future trends based off of past events
 
+## Getting Started
+
+To get started, install the dependencies in `requirements.txt`. You will need a [CoinMarketCap](https://pro.coinmarketcap.com/) API key and a [registered Reddit app](https://www.reddit.com/prefs/apps/). Finally, create a file called `config.yaml` with the following structure:
+```YAML
+# CoinMarketCap
+coinmarketcap:
+  api_key: your-api-key
+
+# Reddit
+reddit:
+  user: your-username
+  password: your-password
+  client_id: reddit-client-id
+  client_secret: reddit-client-secret
+  user_agent: reddit-user-agent
+```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
