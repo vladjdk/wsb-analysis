@@ -16,7 +16,7 @@ Here are the elements that are necessary for the analysis.
 
 ## Getting Started
 
-To get started, install the dependencies in `requirements.txt`. You will need a [CoinMarketCap](https://pro.coinmarketcap.com/) API key and a [registered Reddit app](https://www.reddit.com/prefs/apps/). Finally, create a file called `config.yaml` with the following structure:
+To get started, install the dependencies in `requirements.txt`. You will need a [CoinMarketCap](https://pro.coinmarketcap.com/) API key and a [registered Reddit app](https://www.reddit.com/prefs/apps/). Finally, create a file in the project root directory called `config.yaml` with the following structure:
 ```YAML
 # CoinMarketCap
 coinmarketcap:
