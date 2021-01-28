@@ -5,16 +5,15 @@ from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
 import pandas as pd
-import numpy as np
+import yaml
 
 def retrcrypto():
     url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
     key = None
     # !/usr/bin/env python
 
-    import yaml
 
-    with open("config.yaml", 'r') as stream:
+    with open("../config.yaml", 'r') as stream:
         try:
             key = yaml.safe_load(stream)['coinmarketcap']['api_key']
         except yaml.YAMLError as exc:
@@ -44,13 +43,13 @@ def retrcrypto():
     except (ConnectionError, Timeout, TooManyRedirects) as e:
         print(e)
 
-    path = os.path.join('./', 'files', 'cryptolist')
+    path = os.path.join('../', 'files', 'cryptolist')
     if not os.path.isdir(path):
         os.makedirs(path)
-    with open('./files/cryptolist/coinmarketbaselisted.csv', 'wb') as fp:
+    with open('../files/cryptolist/coinmarketbaselisted.csv', 'wb') as fp:
         crypto_df.to_csv('./files/cryptolist/coinmarketbaselisted.csv')
 
 
 def retrdataframe():
     retrcrypto()
-    return pd.read_csv('./files/cryptolist/coinmarketbaselisted.csv')
+    return pd.read_csv('../files/cryptolist/coinmarketbaselisted.csv')

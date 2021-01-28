@@ -8,14 +8,14 @@ def retrfiles():
 
     ftp.cwd('SymbolDirectory')
 
-    path = os.path.join('./', 'files', 'stocklist')
+    path = os.path.join('../', 'files', 'stocklist')
     if not os.path.isdir(path):
         os.makedirs(path)
 
-    with open('./files/stocklist/nasdaqlisted.txt', 'wb') as fp:
+    with open('../files/stocklist/nasdaqlisted.txt', 'wb') as fp:
         ftp.retrbinary('RETR nasdaqlisted.txt', fp.write)
 
-    with open('./files/stocklist/otherlisted.txt', 'wb') as fp:
+    with open('../files/stocklist/otherlisted.txt', 'wb') as fp:
         ftp.retrbinary('RETR otherlisted.txt', fp.write)
 
 
@@ -25,7 +25,7 @@ def retrdataframe():
 
     dfs = []
 
-    nasdaq_df = pd.read_csv('./files/stocklist/nasdaqlisted.txt', '|')
+    nasdaq_df = pd.read_csv('../files/stocklist/nasdaqlisted.txt', '|')
     nasdaq_df = nasdaq_df[:-1]
     nasdaq_df.rename(columns={'Security Name': 'Name'}, inplace=True)
     nasdaq_df['Exchange'] = 'NASDAQ'
@@ -33,7 +33,7 @@ def retrdataframe():
     dfs.append(nasdaq_df)
 
 
-    other_df = pd.read_csv('./files/stocklist/otherlisted.txt', '|')
+    other_df = pd.read_csv('../files/stocklist/otherlisted.txt', '|')
     other_df = other_df[:-1]
     other_df.rename(columns={'ACT Symbol': 'Symbol', 'Security Name': 'Name'}, inplace=True)
     other_df.loc[other_df['Exchange'] == 'A', 'Exchange'] = 'NYSE MKT'
