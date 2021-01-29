@@ -32,7 +32,6 @@ def retrdataframe():
     nasdaq_df = nasdaq_df[['Symbol', 'Name', 'Round Lot Size', 'Test Issue', 'Exchange']].reset_index(drop=True)
     dfs.append(nasdaq_df)
 
-
     other_df = pd.read_csv('../files/stocklist/otherlisted.txt', '|')
     other_df = other_df[:-1]
     other_df.rename(columns={'ACT Symbol': 'Symbol', 'Security Name': 'Name'}, inplace=True)
@@ -44,6 +43,6 @@ def retrdataframe():
     other_df = other_df[['Symbol', 'Name', 'Round Lot Size', 'Test Issue', 'Exchange']].reset_index(drop=True)
     dfs.append(other_df)
 
-
     combined_df = pd.concat(dfs, axis=0).drop_duplicates(subset='Symbol').reset_index(drop=True)
 
+    return combined_df
